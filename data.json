@@ -1,0 +1,48 @@
+[
+  {
+    "titile": "CORPORATE & SECURITIES",
+    "img": "https://www.theactuary.com/sites/default/files/inline-images/iStock-1155242798.jpg",
+    "description": "We can provide corporate governance, helping clients manage the responsibilities of running a corporation in financial field",
+    "price": 450,
+    "rating": 4.5
+  },
+
+  {
+    "titile": "REAL ESTATE LAW",
+    "img": "https://abaforlawstudents.com/wp-content/uploads/2016/08/realestate.jpg",
+    "description": "We can provide corporate governance, helping clients manage the responsibilities of running a corporation in financial field",
+    "price": 500,
+    "rating": 4
+  },
+
+  {
+    "titile": "HEALTH CARE LAW",
+    "img": "https://admissions.law.miami.edu/_assets/images/1240x550_gavel-stethoscope.jpg",
+    "description": "We can provide corporate governance, helping clients manage the responsibilities of running a corporation in financial field",
+    "price": 350,
+    "rating": 5
+  },
+  {
+    "titile": "INSURANCE LAW",
+    "img": "https://hansu.av.tr/wp-content/uploads/2020/06/005_Insurance-and-Reassurance_Hansu_Law.jpg",
+    "description": "We can provide corporate governance, helping clients manage the responsibilities of running a corporation in financial field",
+    "price": 480,
+    "rating": 3.5
+  },
+
+  {
+    "titile": "CONSTRUCTION & ENGINEERING",
+    "img": "https://engineering.purdue.edu/construction-engineering-management/wp-content/uploads/2022/04/123730928_m-scaled.jpg",
+    "description": "We can provide corporate governance, helping clients manage the responsibilities of running a corporation in financial field",
+    "price": 899,
+    "rating": 4.5
+  },
+
+  {
+    "titile": "ECOMMERCE LAW",
+    "img": "https://prod-media-eng.dhakatribune.com/uploads/2019/07/etrade-editorial-1564231446586.jpg",
+    "description": "We can provide corporate governance, helping clients manage the responsibilities of running a corporation in financial field",
+    "price": 750,
+    "rating": 4.5
+  }
+]
