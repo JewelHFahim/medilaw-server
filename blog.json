@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Difference between SQL and NoSQL",
+    "image": "https://phoenixnap.com/kb/wp-content/uploads/2021/04/sql-vs-nosql.png",
+    "description": "When it comes to choosing a database the biggest decisions is picking a relational (SQL) or non-relational (NoSQL) data structure. While both the databases are viable options still there are certain key differences between the two that users must keep in mind when making a decision. Type, Language ,Scalability , Structure, Property followed, Support"
+  },
+  {
+    "title": "What is JWT, and how does it work?",
+    "image": "https://supertokens.com/covers/what-is-jwt-cover.png",
+    "description": "JWT, or JSON Web Token, is an open standard used to share information between two parties securely — a client and a server. In most cases, it’s an encoded JSON containing a set of claims and a signature. It’s usually used in the context of other authentication mechanisms like OAuth, OpenID to share user-related information. It’s also a popular way to authenticate/authorize users in a microservice architecture. JWT authentication is a token-based stateless. authentication mechanism. It is popularly used as a client-side-based stateless session, this means the server doesn’t have to completely rely on a data store (or) database to save session information. JWTs can be encrypted, but they are typically encoded & signed.  We will be focusing on Signed JWTs. The purpose of Signed JWT is not to hide the data but to ensure the authenticity of the data. And that is why it’s highly recommended to use HTTPS with Signed JWTs."
+  },
+  {
+    "title": "What is the difference between javascript and NodeJS?",
+    "image": "https://static.javatpoint.com/javascriptpages/images/javascript-vs-nodejs.png",
+    "description": "NodeJS : NodeJS is a cross-platform and opensource Javascript runtime environment that allows the javascript to be run on the server-side. Nodejs allows Javascript code to run outside the browser. Nodejs comes with a lot of modules and mostly used in web development. JavaScript : Javascript is a Scripting language. It is mostly abbreviated as JS. It can be said that Javascript is the updated version of the ECMA script. Javascript is a high-level programming language that uses the concept of Oops but it is based on prototype inheritance."
+  },
+  {
+    "title": "How does NodeJS handle multiple requests at the same time?",
+    "image": "https://forum.golibrary.co/wp-content/uploads/2020/04/nodejs.png",
+    "description": "NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them. EventLoop is the listener for the EventQueue. If NodeJS can process the request without I/O blocking then the event loop would itself process the request and sends the response back to the client by itself. But, it is possible to process multiple requests parallelly using the NodeJS cluster module or worker_threads module."
+  }
+]

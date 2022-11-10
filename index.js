@@ -17,6 +17,7 @@ async function run(){
         const serviceCollection = client.db('mediLaw').collection('services');
         const userCollection = client.db('mediLaw').collection('users');
         const reviewCollection = client.db('mediLaw').collection('review');
+        const blogCollection = client.db('mediLaw').collection('blog');
 
         // Service Section Start
         app.get('/services', async(req, res)=>{
@@ -89,7 +90,35 @@ async function run(){
 
         })
 
+        app.put('/personalreview/:id', async(req, res)=>{
+            const id = req.params.id;
+            const query = {_id: ObjectId(id)};
+            const review = req.body;
+            const option = { upsert: true };
+            const updatedDoc = {
+                $set:{
+                    comment: review.comment
+                }
+            }
+            const result = await reviewCollection.updateOne(query, updatedDoc, option);
+            res.send(result)
+        })
         // Review Section
+
+        // Blog Section Start
+        app.get('/blog', async(req, res)=>{
+            const query = {};
+            const cursor = blogCollection.find(query);
+            const result =  await cursor.toArray();
+            res.send(result);
+        })
+        app.get('/blog/:id', async(req, res)=>{
+            const id = req.params.id;
+            const query = {_id: ObjectId(id)};
+            const result = await blogCollection.findOne(query);
+            res.send(result);
+        })
+        // Blog Section End
 
     }
     finally{
