@@ -67,6 +67,7 @@ async function run(){
         })
         // Service Section End
 
+
         // Users Section
         app.post('/users', async(req, res)=>{
             const users = req.body;
@@ -94,7 +95,7 @@ async function run(){
             console.log(result);
         })
 
-        app.get('/review', async(req, res)=>{
+        app.get('/review', verifyJWT, async(req, res)=>{
             const query = {};
             const cursor = reviewCollection.find(query).sort({_id:-1}) ;
             const result =  await cursor.toArray();
@@ -114,7 +115,7 @@ async function run(){
             res.send(review)
         })
 
-        app.delete('/personalreview/:id', async(req, res)=>{
+        app.delete('/personalreview/:id', verifyJWT, async(req, res)=>{
             const id = req.params.id;
             const query = {_id: ObjectId(id)};
             const result = await reviewCollection.deleteOne(query);
@@ -122,7 +123,7 @@ async function run(){
 
         })
 
-        app.put('/personalreview/:id', async(req, res)=>{
+        app.patch('/personalreview/:id', async(req, res)=>{
             const id = req.params.id;
             const query = {_id: ObjectId(id)};
             const review = req.body;
@@ -135,7 +136,7 @@ async function run(){
             const result = await reviewCollection.updateOne(query, updatedDoc, option);
             res.send(result)
         })
-        // Review Section
+        // Review Section End
 
         // Blog Section Start
         app.get('/blog', async(req, res)=>{
@@ -160,15 +161,9 @@ async function run(){
 }
 run().catch(error=>console.error(error))
 
-
-
 app.get('/', (req, res)=>{
     res.send('MediLaw API Working...!!');
 })
-
-// app.get('/services', (req, res)=>{
-//     res.send(services)
-// })
 
 app.listen(port, ()=>{
     console.log('MediLaw working on:', port);
