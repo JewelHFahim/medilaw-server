@@ -4,6 +4,7 @@ const port = process.env.PORT || 5000;
 const cors = require('cors');
 require('dotenv').config();
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const jwt = require('jsonwebtoken');
 
 app.use(cors());
 app.use(express.json());
@@ -12,12 +13,36 @@ app.use(express.json());
 // const uri = "mongodb://localhost:27017";
 const uri = `mongodb+srv://${process.env.ML_USER}:${process.env.ML_PASSWORD}@cluster0.qez1k8e.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
+function verifyJWT(req, res, next){
+    const authHeader = req.body.authorization;
+    if(!authHeader){
+        return res.status(401).send({message: 'unauthorized access' });
+    }
+    const token = authHeader.split(' ')[1];
+    jwt.verify(token,process.env.ML_ACCESS_KEY,function(error, decoded){
+        if(error){
+        return res.status(401).send({message: 'unauthorized access' });
+        }
+        res.decoded = decoded;
+        next();
+    })
+}
+
+
 async function run(){
     try{
         const serviceCollection = client.db('mediLaw').collection('services');
         const userCollection = client.db('mediLaw').collection('users');
         const reviewCollection = client.db('mediLaw').collection('review');
         const blogCollection = client.db('mediLaw').collection('blog');
+
+
+        app.post('/jwt', (req, res)=>{
+            const user = req.body;
+            const token = jwt.sign(user, process.env.ML_ACCESS_KEY,{expiresIn: '1d'});
+            res.send({token})
+        })
 
         // Service Section Start
         app.get('/services', async(req, res)=>{
