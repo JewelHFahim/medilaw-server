@@ -33,6 +33,13 @@ async function run(){
             const result = await serviceCollection.findOne(query);
             res.send(result);
         })
+
+        app.post('/services', async(req, res)=>{
+            const services = req.body;
+            const result = await serviceCollection.insertOne(services);
+            res.send(result);
+            console.log(result);
+        })
         // Service Section End
 
         // Users Section
@@ -64,7 +71,7 @@ async function run(){
 
         app.get('/review', async(req, res)=>{
             const query = {};
-            const cursor = reviewCollection.find(query);
+            const cursor = reviewCollection.find(query).sort({_id:-1}) ;
             const result =  await cursor.toArray();
             res.send(result);
         })
